@@ -1,6 +1,6 @@
 # Ex.No: 9  Implementation of Simple Reinforcement Learning 
 ### DATE:                                                                            
-### REGISTER NUMBER : 
+### REGISTER NUMBER : 212223240153
 ### AIM: 
 To write a program to implement  Reinforcement learning  in Unity 
 ### Algorithm:
@@ -107,12 +107,7 @@ behaviors:
 ```
 ### Output:
 
-
-
-
-
-
-
+<img width="908" height="923" alt="image" src="https://github.com/user-attachments/assets/150c75c7-0c49-4dc6-99d9-84fa7e124a24" />
 
 
 ### Result:
