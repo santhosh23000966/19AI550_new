@@ -76,7 +76,7 @@ Camera automatically follows the player only on X.
 Player continues platform movement on ground.
 ```  
 ### Program:
-playermovement.cs
+# playermovement.cs
 ```
 using System.Collections;
 using System.Collections.Generic;
@@ -126,7 +126,7 @@ public class playermovement : MonoBehaviour
     }
 }
 ```
-jumping.cs
+# jumping.cs
 ```
 using System.Collections;
 using System.Collections.Generic;
