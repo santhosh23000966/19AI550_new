@@ -5,8 +5,7 @@
 To develop a game Basic 2D Side-Scrolling Movement System in Unity 
 ### Algorithm:
 ```
-1. Algorithm for the Game
-1. Initialize the Scene
+# 1. Initialize the Scene
 
 Add a player object (square sprite).
 
@@ -16,7 +15,7 @@ Add a Rigidbody2D to the player so physics works.
 
 Add a camera to follow the player.
 
-2. Player Movement Algorithm
+# 2. Player Movement Algorithm
 
 Input: Keyboard → Arrow keys / A & D / Space
 Output: Player character moves left/right and jumps.
@@ -35,7 +34,7 @@ If player is on the ground (isJumping == false):
 
 Apply upward force to jump.
 
-3. Ground Detection Algorithm
+# 3. Ground Detection Algorithm
 
 Used to prevent double jump.
 
@@ -47,7 +46,7 @@ When the player leaves the ground:
 
 Set isJumping = true
 
-4. Camera Follow Algorithm
+# 4. Camera Follow Algorithm
 
 Ensures the camera always shows the player.
 
@@ -74,9 +73,80 @@ Camera automatically follows the player only on X.
 Player continues platform movement on ground.
 ```  
 ### Program:
+playermovement.cs
 ```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class playermovement : MonoBehaviour
+{
+    public float speed;
+    private float Move;
+    public float jump;
+    public bool isJumping;
+    private Rigidbody2D rb;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Move = Input.GetAxis("Horizontal");
+
+        rb.linearVelocity = new Vector2(speed * Move, rb.linearVelocity.y);
+
+        if (Input.GetButtonDown("Jump")&& isJumping == false)
+        {
+            rb.AddForce(new Vector2(rb.linearVelocity.x, jump));
+            Debug.Log("jump");
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Ground"))
+        {
+            isJumping = false;
+        }
+
+    }   
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+           isJumping = true;
+        }
+    }
+}
+```
+jumping.cs
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class cameramovement : MonoBehaviour
+{
+    public GameObject target;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.position = new Vector3(target.transform.position.x, transform.position.y, -10);
+    }
+}
 ```
 ### Output:
+![WhatsApp Image 2025-11-24 at 08 39 27_0175ae5f](https://github.com/user-attachments/assets/acd7b2d3-72dd-4e2e-a6da-ee68fd66f07c)
 
 ### Result:
 Thus the game was developed using Unity and adopted _-----------AI technology.
