@@ -5,7 +5,7 @@
 To develop a game Basic 2D Side-Scrolling Movement System in Unity 
 ### Algorithm:
 ```
-# 1. Initialize the Scene
+1. Initialize the Scene
 
 Add a player object (square sprite).
 
@@ -14,8 +14,9 @@ Add ground objects and give them a BoxCollider2D.
 Add a Rigidbody2D to the player so physics works.
 
 Add a camera to follow the player.
-
-# 2. Player Movement Algorithm
+```
+```
+2. Player Movement Algorithm
 
 Input: Keyboard → Arrow keys / A & D / Space
 Output: Player character moves left/right and jumps.
@@ -33,8 +34,9 @@ Check if the jump key (“Jump”) is pressed.
 If player is on the ground (isJumping == false):
 
 Apply upward force to jump.
-
-# 3. Ground Detection Algorithm
+```
+```
+3. Ground Detection Algorithm
 
 Used to prevent double jump.
 
@@ -45,8 +47,9 @@ Set isJumping = false
 When the player leaves the ground:
 
 Set isJumping = true
-
-# 4. Camera Follow Algorithm
+```
+```
+4. Camera Follow Algorithm
 
 Ensures the camera always shows the player.
 
